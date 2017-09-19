@@ -284,6 +284,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
     public ChipsInput setMaxRows(int mMaxRows) {
         this.mMaxRows = mMaxRows;
+        setMaxHeight(ViewUtil.dpToPx((40 * mMaxRows) + 8));
         return this;
     }
 
