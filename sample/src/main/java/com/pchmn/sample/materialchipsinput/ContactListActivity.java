@@ -27,6 +27,9 @@ public class ContactListActivity extends AppCompatActivity {
     private static final String TAG = ContactListActivity.class.toString();
     @BindView(R.id.chips_input) ChipsInput mChipsInput;
     @BindView(R.id.validate) Button mValidateButton;
+    @BindView(R.id.delete_all_chips) Button mDeleteAllChips;
+    @BindView(R.id.disable_edit_text) Button mDisableEditText;
+    @BindView(R.id.enable_edit_text) Button mEnableEditText;
     @BindView(R.id.chip_list) TextView mChipListText;
     private List<ContactChip> mContactList;
 
@@ -55,11 +58,15 @@ public class ContactListActivity extends AppCompatActivity {
             @Override
             public void onChipAdded(ChipInterface chip, int newSize) {
                 Log.e(TAG, "chip added, " + newSize);
+
+                mChipsInput.setMaxRows(newSize);
             }
 
             @Override
             public void onChipRemoved(ChipInterface chip, int newSize) {
                 Log.e(TAG, "chip removed, " + newSize);
+
+                mChipsInput.setMaxRows(newSize);
             }
 
             @Override
@@ -80,6 +87,25 @@ public class ContactListActivity extends AppCompatActivity {
 
                 mChipListText.setText(listString);
             }
+        });
+
+        // delete all chips
+        mDeleteAllChips.setOnClickListener(view -> {
+            for(int i = mChipsInput.getSelectedChipList().size()-1; i >= 0; i--) {
+                Object currentChipId = mChipsInput.getSelectedChipList().get(i).getId();
+
+                mChipsInput.removeChipById(currentChipId);
+            }
+        });
+
+        // disable edit text
+        mDisableEditText.setOnClickListener(view -> {
+            mChipsInput.setEditTextEditable(false);
+        });
+
+        // enable edit text
+        mEnableEditText.setOnClickListener(view -> {
+            mChipsInput.setEditTextEditable(true);
         });
     }
 

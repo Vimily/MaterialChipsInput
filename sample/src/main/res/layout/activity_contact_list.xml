@@ -8,12 +8,31 @@
     android:padding="16dp"
     tools:context="com.pchmn.sample.materialchipsinput.ContactListActivity">
 
+    <!--<com.pchmn.materialchips.ChipsInput-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/holo_red_dark"-->
+        <!--app:hint="Enter a name"/>-->
+
     <com.pchmn.materialchips.ChipsInput
         android:id="@+id/chips_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hint="Enter a name"
-        app:maxRows="3" />
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_dark"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:textSize="14sp"
+        android:visibility="visible"
+        app:chip_backgroundColor="@android:color/white"
+        app:chip_deletable="true"
+        app:chip_hasAvatarIcon="false"
+        app:chip_labelColor="@android:color/holo_blue_bright"
+        app:hint="Tap to add"
+        app:hintColor="@android:color/darker_gray"
+        app:showChipDetailed="false"
+        app:textColor="@android:color/black"/>
 
     <Button
         android:id="@+id/validate"
@@ -27,5 +46,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/delete_all_chips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Delete All Chips"/>
+
+    <Button
+        android:id="@+id/enable_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="enable edit text"/>
+
+    <Button
+        android:id="@+id/disable_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="disable edit text"/>
 
 </LinearLayout>

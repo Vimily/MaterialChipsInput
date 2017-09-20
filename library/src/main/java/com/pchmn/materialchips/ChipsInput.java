@@ -356,6 +356,22 @@ public class ChipsInput extends ScrollViewMaxHeight {
         this.mChipValidator = mChipValidator;
     }
 
+    /*
+    ** Begin function added by ME
+     */
+
+    public void setEditTextEditable(boolean editable) {
+        if(editable) {
+            mChipsAdapter.enableEditText();
+        } else {
+            mChipsAdapter.disableEditText();
+        }
+    }
+
+    /*
+    ** End
+     */
+
     public interface ChipsListener {
         void onChipAdded(ChipInterface chip, int newSize);
         void onChipRemoved(ChipInterface chip, int newSize);

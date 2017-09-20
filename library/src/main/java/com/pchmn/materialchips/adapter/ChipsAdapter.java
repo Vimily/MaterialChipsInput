@@ -388,4 +388,22 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         return false;
     }
+
+    /*
+    ** Begin function added by ME
+     */
+
+    public void enableEditText() {
+        mEditText.setEnabled(true);
+        mEditText.setFocusableInTouchMode(true);
+    }
+
+    public void disableEditText() {
+        mEditText.setEnabled(false);
+        mEditText.setFocusable(false);
+    }
+
+    /*
+    ** End
+     */
 }
